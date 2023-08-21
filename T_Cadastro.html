@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Faça seu Login</title>
+  <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;           
+        margin: 0;
+        background-color: #8AB9E4;
+    }
+    #formulario {
+      background-color: #D9D9D9;
+      padding: 35px;
+      border-radius: 30px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    button {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 20px; /* Bordas arredondadas */
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="formulario">
+    <h2>Login</h2>
+    <form action="file:///C:/Users/appegoraro2/Projeto/T_Escolha_Teste.html" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>
