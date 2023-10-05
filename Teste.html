@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de DPPH</title>
+    <!-- Inclua a biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Calculadora de DPPH</h1>
+    <div>
+        <label for="absorbance">Absorbance (A<sub>0</sub>):</label>
+        <input type="number" id="absorbance">
+    </div>
+    <div>
+        <label for="sampleAbsorbance">Absorbance da amostra (A<sub>1</sub>):</label>
+        <input type="number" id="sampleAbsorbance">
+    </div>
+    <button onclick="calculateDPPH()">Calcular DPPH</button>
+    <canvas id="dpphChart" width="400" height="200"></canvas>
+
+    <script>
+        // Função para calcular o DPPH
+        function calculateDPPH() {
+            const A0 = parseFloat(document.getElementById('absorbance').value);
+            const A1 = parseFloat(document.getElementById('sampleAbsorbance').value);
+
+            if (isNaN(A0) || isNaN(A1)) {
+                alert('Por favor, insira valores válidos para as absorbâncias.');
+                return;
+            }
+
+            const DPPH = (A0 - A1) / A0 * 100;
+
+            // Atualiza o elemento HTML com o resultado
+            document.getElementById('dpphResult').innerHTML = `DPPH: ${DPPH.toFixed(2)}%`;
+
+            // Cria um gráfico de barras
+            const ctx = document.getElementById('dpphChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['DPPH (%)'],
+                    datasets: [{
+                        label: 'DPPH',
+                        data: [DPPH],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

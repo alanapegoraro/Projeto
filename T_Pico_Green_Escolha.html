@@ -76,7 +76,7 @@
         document.getElementById("calculateButton").addEventListener("click", function () {
             var ABSValue = parseFloat(document.getElementById("ABSMedias").value);
             var ControleValue = parseFloat(document.getElementById("ConMedias").value);
-            var resultado = ABSValue/ControleValue;
+            var resultado = (ABSValue*100)/ControleValue;
             document.getElementById("result").innerHTML = "Resultado: " + resultado.toFixed(3);
         });
     </script>

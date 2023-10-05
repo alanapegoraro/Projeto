@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Reta</title>
+    <script>
+        function calcularReta() {
+            // Obtenha os valores de x e y inseridos pelo usuário
+            var x1 = parseFloat(document.getElementById('x1').value);
+            var y1 = parseFloat(document.getElementById('y1').value);
+            var x2 = parseFloat(document.getElementById('x2').value);
+            var y2 = parseFloat(document.getElementById('y2').value);
+
+            // Calcule a inclinação e o intercepto da reta
+            var slope = (y2 - y1) / (x2 - x1);
+            var intercept = y1 - slope * x1;
+
+            // Exiba a equação da reta
+            document.getElementById('equation').textContent = "Equação da Reta: y = " + slope.toFixed(2) + "x + " + intercept.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Reta</h1>
+    <p>Insira os pontos (x1, y1) e (x2, y2) para calcular a equação da reta.</p>
+    
+    <label for="x1">x1:</label>
+    <input type="number" id="x1">
+    <label for="y1">y1:</label>
+    <input type="number" id="y1">
+    
+    <br>
+    
+    <label for="x2">x2:</label>
+    <input type="number" id="x2">
+    <label for="y2">y2:</label>
+    <input type="number" id="y2">
+    
+    <br><br>
+    
+    <button onclick="calcularReta()">Calcular Reta</button>
+    
+    <p id="equation"></p>
+</body>
+</html>
